@@ -219,8 +219,8 @@ const auto& shader5 = [](vec2 FC, vec2 r, double t, vec4& o)
     vec3 redColor = {1.0, 0.0, 0.0};
     vec3 yellowColor = {1.0, 1.0, 0.0};
 
-    vec3 pinkColor = redColor;
-    vec3 blueColor = greenColor;
+    vec3 pinkColor = redColor + greenColor;
+    vec3 blueColor = redColor*5 + yellowColor;
 
     vec3 col = {
         core + glowPink * pinkColor.x + glowBlue * blueColor.x,
@@ -284,7 +284,7 @@ extern "C" void render(unsigned char* pixels, int width, int height, double t)
             vec4 color = {0.0, 0.0, 0.0, 0.0};
             vec2 position = {x + 0.5, height - y - 0.5};
             
-            shader5(position, resolution, t, color);
+            shader1(position, resolution, t, color);
   
             int i = (y * width + x) * 3;
             pixels[i]     = toByte(color.x);
