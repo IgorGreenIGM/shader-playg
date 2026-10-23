@@ -1,0 +1,11 @@
+/build/
+/frames/
+/a.out
+/renderer
+/runner
+/watch
+/tests
+/.vscode
+/demo
+*.so
+*.log
